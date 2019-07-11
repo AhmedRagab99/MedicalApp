@@ -28,7 +28,7 @@ dependencies {
     implementation 'androidx.vectordrawable:vectordrawable:1.1.0-beta02'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
-    //retrofit
+    //retrofitt
     implementation 'com.squareup.retrofit2:retrofit:2.6.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
 
