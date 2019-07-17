@@ -14,7 +14,7 @@ public class BaseFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        activity= ((BaseActivity) context);
+
     }
 
     public AlertDialog showConfirmationDialog(int title, int message, int posText,
@@ -36,7 +36,7 @@ public class BaseFragment extends Fragment {
 
     ProgressDialog progressDialog;
     public ProgressDialog showProgressBar(int message){
-        progressDialog = new ProgressDialog(activity);
+        progressDialog = new ProgressDialog(getActivity());
         progressDialog.setTitle(message);
         progressDialog.setCancelable(false);
         progressDialog.show();

@@ -1,10 +1,8 @@
 package com.example.medicalapp;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -12,7 +10,6 @@ import com.example.medicalapp.Base.BaseActivity;
 
 public class SplashActivity extends BaseActivity {
 
-    @RequiresApi(api = Build.VERSION_CODES.P)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,8 +18,8 @@ public class SplashActivity extends BaseActivity {
             @Override
             public void run() {
                 startActivity(new Intent(activity,HomeActivity.class));
+                 finish();
             }
         },2000);
-
     }
 }

@@ -13,7 +13,8 @@ public class Constants {
     public static final String INFERAMIDICA_APLICATION_ID="281fe9c7";
 
 //News Api
-    public static final String NEWS_API="1a403b8c399148658323399c4e1c7135";
+    public static final String NEWS_API=
+        "5215f362c2774f1eb3d38390f3333ed4";
 
     //Languages
     public static final String Language="en-gb";

@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class APIManager {
     private static Retrofit Newsretrofit;
-    private static Retrofit InfremidicaRetrofit;
+
     private static Retrofit symptomCheaherRetrofit;
     private static Retrofit drugsRetrofit;
 
@@ -23,15 +23,6 @@ public class APIManager {
     }
 
 
-    public static Retrofit getInfremidicaInstance(){
-        if(InfremidicaRetrofit==null){
-            InfremidicaRetrofit =new Retrofit.Builder()
-                    .baseUrl("https://api.infermedica.com/v2/")
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
-        }
-        return InfremidicaRetrofit;
-    }
 
 
     public static Retrofit getSymptomCheaherInstance(){
@@ -66,10 +57,6 @@ public class APIManager {
         return getDrugsInstance().create(WebServices.class);
     }
 
-    public static WebServices getInfremdicaApis(){
-        return getInfremidicaInstance().create(WebServices.class);
-
-    }
 
     public static WebServices getSymptomChkerApis(){
         return getSymptomCheaherInstance().create(WebServices.class);
