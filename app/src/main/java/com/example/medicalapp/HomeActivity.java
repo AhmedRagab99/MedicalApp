@@ -7,6 +7,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.example.medicalapp.Diagnoses.DiagnosesFragment;
+import com.example.medicalapp.Doctors.DoctorsFragment;
 import com.example.medicalapp.Home.HomeFragment;
 import com.example.medicalapp.Symptom.SymptomFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -26,10 +28,10 @@ public class HomeActivity extends AppCompatActivity {
                     break;
                 }
                 case R.id.navigation_dashboard:{
-           fragment=new AlarmFragment();
+           fragment=new DoctorsFragment();
                   break;}
                 case R.id.navigation_notifications:{
-                   fragment=new SymptomFragment();
+                   fragment=new DiagnosesFragment();
                     break;}
             }
             getSupportFragmentManager().beginTransaction().replace(R.id.frame_container,fragment).commit();

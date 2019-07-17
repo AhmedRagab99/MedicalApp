@@ -16,6 +16,10 @@ public class Constants {
     public static final String NEWS_API=
         "5215f362c2774f1eb3d38390f3333ed4";
 
+    //DoctorApiKey
+
+    public static final String DOCTORAPI="df46bdd39ab3c2a616217c0b52e2b74b";
+
     //Languages
     public static final String Language="en-gb";
 }

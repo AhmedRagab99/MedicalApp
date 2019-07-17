@@ -2,6 +2,7 @@ package com.example.medicalapp.API;
 
 
 import com.example.medicalapp.API.DiagnosesModel.DiagnosesResponse;
+import com.example.medicalapp.API.DoctorsModel.DoctorResponse;
 import com.example.medicalapp.API.DrugModel.DrugInfoModel.DrugInfoResponse;
 import com.example.medicalapp.API.DrugModel.DrugResponse;
 import com.example.medicalapp.API.NewsModel.NewsResponse;
@@ -40,7 +41,9 @@ public interface WebServices {
 
 
 
-
+//DoctorApi
+@GET("doctors")
+Call<DoctorResponse>getDoctors(@Query("user_key")String apiKey,@Query("name")String name);
 //DrugsApi
     @GET("drugs")
     Call<DrugResponse> getDrugs(@Query("page")String page,@Query("count")String count);
@@ -50,8 +53,6 @@ public interface WebServices {
 
 
     //InferamidecaApi
-
-
 
     @Headers({"App-Id:281fe9c7",
             "App-Key:648fad60ec47148a7b6a4cebdc871402",

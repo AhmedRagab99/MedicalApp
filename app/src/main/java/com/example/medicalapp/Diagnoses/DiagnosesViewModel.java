@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModel;
 import com.example.medicalapp.API.APIManager;
 import com.example.medicalapp.API.DiagnosesModel.DiagnosesResponse;
 import com.example.medicalapp.Constants;
+import com.example.medicalapp.Symptom.SymptomAdapter;
 
 import org.json.JSONArray;
 
@@ -29,8 +30,10 @@ public class DiagnosesViewModel extends AndroidViewModel {
     public void loadDiadnoses(){
 
         JSONArray arr = new JSONArray();
-        arr.put(29);
-        arr.put(11);
+        for(int i=0;i< SymptomAdapter.checkedSymptoms.size();i++){
+            arr.put(SymptomAdapter.checkedSymptoms.get(i));
+        }
+
 
         APIManager.getSymptomChkerApis().getDiagnoses(arr,"male",1984, Constants.Language).enqueue(new Callback<List<DiagnosesResponse>>() {
             @Override
@@ -39,7 +42,8 @@ public class DiagnosesViewModel extends AndroidViewModel {
                     System.out.println("a7a");
                     return;
                 }
-                System.out.println("HEREEEE"+response.body().get(0).getIssue().getName());
+
+                Diagnoses.setValue(response.body());
             }
 
             @Override

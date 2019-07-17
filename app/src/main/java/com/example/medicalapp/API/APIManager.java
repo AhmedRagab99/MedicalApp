@@ -9,6 +9,22 @@ public class APIManager {
 
     private static Retrofit symptomCheaherRetrofit;
     private static Retrofit drugsRetrofit;
+    private static  Retrofit DoctorRetrofit;
+
+
+
+    public static Retrofit getDoctorInstance(){
+
+        if(DoctorRetrofit==null){
+            DoctorRetrofit =new Retrofit.Builder()
+                    .baseUrl("https://api.betterdoctor.com/2016-03-01/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+        }
+        return DoctorRetrofit;
+
+    }
+
 
     public static Retrofit getNewsInstance(){
 
@@ -56,6 +72,11 @@ public class APIManager {
     public static WebServices getDrugApi(){
         return getDrugsInstance().create(WebServices.class);
     }
+
+    public static WebServices getDoctorApi(){
+        return getDoctorInstance().create(WebServices.class);
+    }
+
 
 
     public static WebServices getSymptomChkerApis(){
