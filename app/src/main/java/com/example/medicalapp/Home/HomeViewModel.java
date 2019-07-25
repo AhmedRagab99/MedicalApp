@@ -35,9 +35,9 @@ public class HomeViewModel  extends AndroidViewModel {
                     @Override
                     public void onResponse(Call<NewsResponse> call, Response<NewsResponse> response) {
                         if(!response.isSuccessful()){
-                            System.out.println("yalaahwyy");
                             return;
                         }
+                            System.out.println("yalaahwyy");
                         //showLoading.setValue(false);
                         articles.setValue(response.body().getArticles());
                     }
@@ -46,7 +46,7 @@ public class HomeViewModel  extends AndroidViewModel {
                     public void onFailure(Call<NewsResponse> call, Throwable t) {
                         //showLoading.setValue(false);
                         //alertMessage.setValue(t.getLocalizedMessage());
-                        System.out.println("a7a");
+                        System.out.println("Sorrryyyyyyyyy"+t.getLocalizedMessage());
 
                     }
                 });

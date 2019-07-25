@@ -1,14 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Drugs.DrugFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@color/cardview_shadow_end_color">
 
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/dr_tablayout"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/tabe_shape"
+            android:paddingStart="7dp"
+            android:paddingEnd="7dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@android:color/background_dark"
+            app:tabMode="scrollable"
+            app:tabRippleColor="@color/colorAccent"
+            app:tabSelectedTextColor="@color/colorPrimaryDark"
+            app:tabTextColor="@color/colorPrimaryDark" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:layout_margin="12dp"
+            android:elevation="5dp"
+            android:id="@+id/page_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/view_pager_shape"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dr_tablayout" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

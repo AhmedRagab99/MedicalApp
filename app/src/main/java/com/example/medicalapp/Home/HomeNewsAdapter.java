@@ -1,5 +1,8 @@
 package com.example.medicalapp.Home;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +20,13 @@ import com.ramotion.foldingcell.FoldingCell;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeNewsAdapter extends  RecyclerView.Adapter<HomeNewsAdapter.ViewHolder> {
+public class HomeNewsAdapter extends RecyclerView.Adapter<HomeNewsAdapter.ViewHolder> {
+    public HomeNewsAdapter(Context context, List<ArticlesItem> articlesItems) {
+        this.context = context;
+        this.articlesItems = articlesItems;
+    }
 
-
+    Context context;
     List<ArticlesItem> articlesItems = new ArrayList<>();
     FoldingCell fc;
 
@@ -33,7 +40,7 @@ public class HomeNewsAdapter extends  RecyclerView.Adapter<HomeNewsAdapter.ViewH
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
-        ArticlesItem item = articlesItems.get(position);
+        final ArticlesItem item = articlesItems.get(position);
         holder.desc.setText(item.getDescription());
         holder.publishedAt.setText(item.getPublishedAt());
         holder.title.setText(item.getTitle());
@@ -63,6 +70,20 @@ public class HomeNewsAdapter extends  RecyclerView.Adapter<HomeNewsAdapter.ViewH
 
             }
         });
+        holder.readmore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                seearticleonsite(item.getUrl().toString());
+            }
+        });
+    }
+
+    public void seearticleonsite(String url) {
+        if (!url.startsWith("http://") && !url.startsWith("https://")) {
+            url = "http://" + url;
+        }
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        context.startActivity(browserIntent);
     }
 
     @Override
@@ -72,29 +93,24 @@ public class HomeNewsAdapter extends  RecyclerView.Adapter<HomeNewsAdapter.ViewH
         else return articlesItems.size();
     }
 
-    public void changeData(List<ArticlesItem> items) {
-        articlesItems = items;
-        notifyDataSetChanged();
-
-    }
-
 
     class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView imageView1, imageView2;
         private View view1, view2;
         FoldingCell fcc;
-        private TextView title, desc, publishedAt;
+        private TextView title, desc, publishedAt, readmore;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView1 = itemView.findViewById(R.id.news_imageView1);
-            imageView2 = itemView.findViewById(R.id.news_imageView2);
+            imageView2 = itemView.findViewById(R.id.image);
             title = itemView.findViewById(R.id.news_titleView1);
             view1 = itemView.findViewById(R.id.view_title);
+            readmore = itemView.findViewById(R.id.diagnosis_IcdName);
             view2 = itemView.findViewById(R.id.view_content);
             fcc = (FoldingCell) itemView.findViewById(R.id.folding_cell);
-            desc = itemView.findViewById(R.id.news_description);
-            publishedAt = itemView.findViewById(R.id.news_date);
+            desc = itemView.findViewById(R.id.diagnosis_name2);
+            publishedAt = itemView.findViewById(R.id.diagnosis_Accuracy);
 
 
         }

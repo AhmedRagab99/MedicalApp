@@ -2,6 +2,7 @@ package com.example.medicalapp.Symptom;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.RadioButton;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,7 +28,6 @@ public class SymptomAdapter extends RecyclerView.Adapter<SymptomAdapter.ViewHold
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
         SymptomResponse item=symptoms.get(position);
         holder.symptom.setText(item.getName());
-        System.out.println(item.getName()+"\n");
         holder.symptom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,7 +52,7 @@ public class SymptomAdapter extends RecyclerView.Adapter<SymptomAdapter.ViewHold
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        RadioButton symptom;
+        CheckBox symptom;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             symptom=itemView.findViewById(R.id.symptom_radio);

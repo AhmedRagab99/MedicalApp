@@ -6,10 +6,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.medicalapp.API.DiagnosesModel.DiagnosesResponse;
 import com.example.medicalapp.R;
+import com.ramotion.foldingcell.FoldingCell;
 
 import java.util.List;
 
@@ -20,14 +22,32 @@ public class DiagnosesAdapter  extends RecyclerView.Adapter<DiagnosesAdapter.Vie
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.diagnoses_item_view,parent,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.diagnosis_name,parent,false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         DiagnosesResponse item=diagnoses.get(position);
-        holder.textView.setText(item.getIssue().getName());
+        holder.name.setText(item.getIssue().getName());
+        holder.name2.setText(item.getIssue().getName());
+        holder.accur.setText(String.valueOf("Accuracy : "+item.getIssue().getAccuracy()));
+        holder.rank.setText(String.valueOf("Ranking : "+item.getIssue().getRanking()));
+        holder.icd.setText("IcdName : "+item.getIssue().getIcdName());
+        holder.prof.setText("ProfName :" +item.getIssue().getProfName());
+        holder.layout1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.folding_cell_diagnosis.toggle(false);
+            }
+        });
+        holder.layout2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.folding_cell_diagnosis.toggle(false);
+            }
+        });
+
 
     }
     public void changeData(List<DiagnosesResponse>diagnoses){
@@ -43,10 +63,22 @@ public class DiagnosesAdapter  extends RecyclerView.Adapter<DiagnosesAdapter.Vie
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        TextView textView;
+        TextView name,name2,accur,icd,prof,rank;
+        FoldingCell folding_cell_diagnosis;
+        ConstraintLayout layout1,layout2;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-           textView=itemView.findViewById(R.id.name);
+            folding_cell_diagnosis=(FoldingCell)itemView.findViewById(R.id.folding);
+              name=itemView.findViewById(R.id.too);
+            name2=itemView.findViewById(R.id.diagnosis_name2);
+            accur=itemView.findViewById(R.id.diagnosis_Accuracy);
+            layout1=itemView.findViewById(R.id.viewdiagnosis);
+            layout2=itemView.findViewById(R.id.diagnosis_detail);
+
+            rank=itemView.findViewById(R.id.diagnosis_Ranking);
+            prof=itemView.findViewById(R.id.diagnosis_ProfName);
+            icd=itemView.findViewById(R.id.diagnosis_IcdName);
+
         }
     }
 }

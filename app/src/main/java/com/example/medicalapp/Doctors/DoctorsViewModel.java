@@ -8,6 +8,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.medicalapp.API.APIManager;
 import com.example.medicalapp.API.DiagnosesModel.DiagnosesResponse;
+import com.example.medicalapp.API.DoctorsModel.DataItem;
 import com.example.medicalapp.API.DoctorsModel.DoctorResponse;
 import com.example.medicalapp.Constants;
 
@@ -22,7 +23,7 @@ public class DoctorsViewModel extends AndroidViewModel {
         super(application);
     }
 
-    public MutableLiveData<List<DiagnosesResponse>> doctors=new MutableLiveData<>();
+    public MutableLiveData<List<DataItem>> doctors=new MutableLiveData<>();
     public MutableLiveData<Boolean> showLoading=new MutableLiveData<>();
     public MutableLiveData<String> alertMessage=new MutableLiveData<>();
 
@@ -36,6 +37,7 @@ public void loadDoctors(){
                 System.out.println("A7aaaaaaaaaa");
                 return;
             }
+            doctors.setValue(response.body().getData());
             System.out.println("Yaaaaaaa"+response.body().getData().get(0).getProfile().getFirstName());
 
 

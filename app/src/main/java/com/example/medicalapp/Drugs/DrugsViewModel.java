@@ -19,26 +19,27 @@ public class DrugsViewModel  extends AndroidViewModel {
     public MutableLiveData<Boolean> showLoading = new MutableLiveData<>();
     public MutableLiveData<String> alertMessage = new MutableLiveData<>();
     public MutableLiveData<DrugInfoResponse>drugInfo=new MutableLiveData<>();
-    public void loadDrugs() {
+    public void loadDrugs(String page) {
         showLoading.setValue(true);
-        APIManager.getDrugApi().getDrugs("2","40").enqueue(new Callback<DrugResponse>() {
+        APIManager.getDrugApi().getDrugs(page,"30").enqueue(new Callback<DrugResponse>() {
             @Override
             public void onResponse(Call<DrugResponse> call, Response<DrugResponse> response) {
                 if (!response.isSuccessful()) {
-                    System.out.println("a7aaaaaaaaaaa");
                     return;
                 }
-                System.out.println("heeeeere" + response.body().getRecords().get(25).getName());
+                    System.out.println("a7aaaaaaaaaaa");
+                Drug.setValue(response.body());
             }
 
             @Override
             public void onFailure(Call<DrugResponse> call, Throwable t) {
-                System.out.println("yalllllllllllllllllllllllllla"+t.getLocalizedMessage());
+                System.out.println("yallllllllllllllllllllllllllahhhhhhhhh"+t.getLocalizedMessage());
             }
         });
 
 
     }
+
     public void loadDrugInfo(String drugId){
         APIManager.getDrugApi().getDrugInfo(drugId).enqueue(new Callback<DrugInfoResponse>() {
             @Override

@@ -6,7 +6,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class APIManager {
     private static Retrofit Newsretrofit;
-
     private static Retrofit symptomCheaherRetrofit;
     private static Retrofit drugsRetrofit;
     private static  Retrofit DoctorRetrofit;

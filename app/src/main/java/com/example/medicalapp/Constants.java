@@ -3,7 +3,7 @@ package com.example.medicalapp;
 public class Constants {
 
     //Rapid Api
-   public static final String  RAPID_API_KEY="19254fe262msh78a558e2cc28b5ap1c14d7jsndc5a74cf5506";
+   public static final String  RAPID_API_KEY="aaf2848740msh2cb76f11c6b0fbap17c052jsn1c3c6f1e4e91";
    public static final String  RAPID_API_PROJECT_NAME="default-application_3720189";
    public static final String  RAPID_API_HOST="priaid-symptom-checker-v1.p.rapidapi.com";
 
@@ -18,7 +18,7 @@ public class Constants {
 
     //DoctorApiKey
 
-    public static final String DOCTORAPI="df46bdd39ab3c2a616217c0b52e2b74b";
+    public static final String DOCTORAPI="4829db1dd7694a7417911c1b539f6d2a";
 
     //Languages
     public static final String Language="en-gb";

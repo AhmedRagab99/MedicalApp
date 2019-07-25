@@ -30,8 +30,13 @@ public class DiagnosesViewModel extends AndroidViewModel {
     public void loadDiadnoses(){
 
         JSONArray arr = new JSONArray();
+//        arr.put("234");
+//        arr.put("11");
+
+
         for(int i=0;i< SymptomAdapter.checkedSymptoms.size();i++){
             arr.put(SymptomAdapter.checkedSymptoms.get(i));
+            System.out.println("hi ");
         }
 
 
@@ -39,11 +44,11 @@ public class DiagnosesViewModel extends AndroidViewModel {
             @Override
             public void onResponse(Call<List<DiagnosesResponse>> call, Response<List<DiagnosesResponse>> response) {
                 if(!response.isSuccessful()){
-                    System.out.println("a7a");
                     return;
                 }
 
                 Diagnoses.setValue(response.body());
+                    System.out.println("a7a ///"+Diagnoses.getValue());
             }
 
             @Override
