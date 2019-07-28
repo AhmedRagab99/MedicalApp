@@ -150,17 +150,29 @@ public class DoctorsAdapter extends RecyclerView.Adapter<DoctorsAdapter.ViewHold
         temp.add("2001");
         temp.add("3854");
         //lat 47
-        temp.add("15.47");
-        temp.add("39.55");
-        temp.add("30.01");
-        temp.add("39.91");
-        temp.add("52.30");
+        temp.add("13.736717");
+        temp.add("51.509865");
+        temp.add("48.864716");
+        temp.add("25.276987");
+        temp.add("40.730610");
+
+        temp.add("35.652832");
+        temp.add("45.464211");
+        temp.add("41.390205");
+        temp.add("41.015137");
+        temp.add("-8.409518");
         //long 47
-        temp.add("47.55");
-        temp.add("116.20");
-        temp.add("31.14");
-        temp.add("77.02");
-        temp.add("13.25");
+        temp.add("100.523186");
+        temp.add("-0.118092");
+        temp.add("2.349014");
+        temp.add("55.296249");
+        temp.add("-73.935242");
+
+        temp.add("139.839478");
+        temp.add("9.191383");
+        temp.add("2.154007");
+        temp.add("28.979530");
+        temp.add("115.188919");
 
     }
 
@@ -172,8 +184,8 @@ public class DoctorsAdapter extends RecyclerView.Adapter<DoctorsAdapter.ViewHold
         int language = new Random().nextInt(27 - 23 + 1) + 23;
         int education = new Random().nextInt(36 - 28 + 1) + 28;
         int rate = new Random().nextInt(46 - 37 + 1) + 37;
-        int lat=new Random().nextInt(51 - 47 + 1) + 47;
-        int lng=new Random().nextInt(56 - 52 + 1) + 52;
+        int lat=new Random().nextInt(56 - 47 + 1) + 47;
+        int lng=new Random().nextInt(66 - 57 + 1) + 57;
 
         //language
         List<LanguagesItem> languagesItem = new ArrayList<>();
