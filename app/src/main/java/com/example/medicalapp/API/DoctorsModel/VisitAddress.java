@@ -7,6 +7,12 @@ public class VisitAddress{
 	@SerializedName("zip")
 	private String zip;
 
+	public VisitAddress(String stateLong, String city) {
+		this.stateLong = stateLong;
+		this.city = city;
+
+	}
+
 	@SerializedName("state_long")
 	private String stateLong;
 

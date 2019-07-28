@@ -43,7 +43,7 @@ public interface WebServices {
 
 //DoctorApi
 @GET("doctors")
-Call<DoctorResponse>getDoctors(@Query("user_key")String apiKey,@Query("name")String name);
+Call<DoctorResponse>getDoctors(@Query("user_key")String apiKey,@Query("name")String name,@Query("limit")String limit);
 //DrugsApi
     @GET("drugs")
     Call<DrugResponse> getDrugs(@Query("page")String page,@Query("count")String count);

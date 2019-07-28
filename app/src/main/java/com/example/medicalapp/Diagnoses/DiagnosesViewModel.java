@@ -27,15 +27,15 @@ public class DiagnosesViewModel extends AndroidViewModel {
     public DiagnosesViewModel(@NonNull Application application) {
         super(application);
     }
-    public void loadDiadnoses(){
+    public void loadDiadnoses(List<String> checkedSymptoms){
 
         JSONArray arr = new JSONArray();
 //        arr.put("234");
 //        arr.put("11");
 
-
-        for(int i=0;i< SymptomAdapter.checkedSymptoms.size();i++){
-            arr.put(SymptomAdapter.checkedSymptoms.get(i));
+        System.out.println(checkedSymptoms.size()+"--------------------");
+        for(int i=0;i< checkedSymptoms.size();i++){
+            arr.put(checkedSymptoms.get(i));
             System.out.println("hi ");
         }
 
@@ -44,10 +44,11 @@ public class DiagnosesViewModel extends AndroidViewModel {
             @Override
             public void onResponse(Call<List<DiagnosesResponse>> call, Response<List<DiagnosesResponse>> response) {
                 if(!response.isSuccessful()){
+                    System.out.println("leeeh kda");
                     return;
                 }
 
-                Diagnoses.setValue(response.body());
+                    Diagnoses.setValue(response.body());
                     System.out.println("a7a ///"+Diagnoses.getValue());
             }
 

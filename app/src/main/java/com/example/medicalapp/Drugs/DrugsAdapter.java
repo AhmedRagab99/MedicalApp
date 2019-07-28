@@ -7,6 +7,8 @@ import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -25,12 +27,15 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class DrugsAdapter extends RecyclerView.Adapter<DrugsAdapter.ViewHolder>  {
-    List<RecordsItem> drugs=new ArrayList<>();
+public class DrugsAdapter extends RecyclerView.Adapter<DrugsAdapter.ViewHolder>  implements Filterable {
+    List<RecordsItem> drugs;
+    List<RecordsItem> searchdrugs;
+
     Dialog drugDetails;
     Context context;
     public DrugsAdapter(List<RecordsItem> drugs, Context context) {
-        this.drugs = drugs;
+        this.drugs =drugs;
+        this.searchdrugs =new ArrayList<>(drugs);
         this.context=context;
     }
 
@@ -73,7 +78,6 @@ public class DrugsAdapter extends RecyclerView.Adapter<DrugsAdapter.ViewHolder> 
 
                     }
                 });
-
                 drugDetails.show();
             }
         });
@@ -83,6 +87,7 @@ public class DrugsAdapter extends RecyclerView.Adapter<DrugsAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         RecordsItem item=drugs.get(position);
+
         holder.name.setText(item.getName());
 
     }
@@ -91,7 +96,44 @@ public class DrugsAdapter extends RecyclerView.Adapter<DrugsAdapter.ViewHolder> 
     public int getItemCount() {
         return drugs.size();
     }
-//drugs.get(viewHolder.getAdapterPosition()).getChemblId()
+
+    @Override
+    public Filter getFilter() {
+        return drugfilter;
+    }
+
+    private Filter drugfilter=new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<RecordsItem> filteredList = new ArrayList<>();
+
+            if (constraint == null || constraint.length() == 0) {
+                filteredList.addAll(searchdrugs);
+            } else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+
+                for (RecordsItem item : searchdrugs) {
+                    if (item.getName().toLowerCase().contains(filterPattern)) {
+                        filteredList.add(item);
+                    }
+                }
+            }
+
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+
+            drugs.clear();
+            drugs.addAll((List) results.values);
+            notifyDataSetChanged();
+        }
+    };
+    //drugs.get(viewHolder.getAdapterPosition()).getChemblId()
     class ViewHolder extends RecyclerView.ViewHolder{
         TextView name,druginfo;
         ConstraintLayout druglayout;

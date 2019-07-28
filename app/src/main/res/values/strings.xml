@@ -14,4 +14,5 @@
     <string name="person">person</string>
     <string name="error">error</string>
     <string name="Upload">save</string>
+    <string name="title_activity_map_dr">Map</string>
 </resources>

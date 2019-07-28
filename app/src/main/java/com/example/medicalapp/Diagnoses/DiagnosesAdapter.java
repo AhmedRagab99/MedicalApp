@@ -13,16 +13,22 @@ import com.example.medicalapp.API.DiagnosesModel.DiagnosesResponse;
 import com.example.medicalapp.R;
 import com.ramotion.foldingcell.FoldingCell;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DiagnosesAdapter  extends RecyclerView.Adapter<DiagnosesAdapter.ViewHolder> {
 
 
+    public DiagnosesAdapter(List<DiagnosesResponse> diagnoses) {
+        this.diagnoses = new ArrayList<>();
+        this.diagnoses.addAll(diagnoses);
+    }
+
     List<DiagnosesResponse> diagnoses;
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.diagnosis_name,parent,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.diagnosis_item,parent,false);
         return new ViewHolder(view);
     }
 
@@ -50,14 +56,11 @@ public class DiagnosesAdapter  extends RecyclerView.Adapter<DiagnosesAdapter.Vie
 
 
     }
-    public void changeData(List<DiagnosesResponse>diagnoses){
-        this.diagnoses=diagnoses;
-        notifyDataSetChanged();
-    }
+
 
     @Override
     public int getItemCount() {
-        if(diagnoses==null)
+        if(diagnoses==null||diagnoses.isEmpty())
         return 0;
         else return diagnoses.size();
     }

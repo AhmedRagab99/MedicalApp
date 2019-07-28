@@ -110,7 +110,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 fragment=new SymptomFragment();
                 break;}
         }
-        getFragmentManager().beginTransaction().replace(R.id.frame_container,fragment).commit();
+        getFragmentManager().beginTransaction().replace(R.id.frame_container,fragment).addToBackStack(null).commit();
     }
 
 }

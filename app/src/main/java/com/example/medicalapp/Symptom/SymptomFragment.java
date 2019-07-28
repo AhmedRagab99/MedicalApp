@@ -52,7 +52,7 @@ public class SymptomFragment extends BaseFragment {
         check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getFragmentManager().beginTransaction().replace(R.id.frame_container,new DiagnosesFragment()).commit();
+                getFragmentManager().beginTransaction().replace(R.id.frame_container,new DiagnosesFragment(adapter.checkedSymptoms)).addToBackStack(null).commit();
 
             }
         });

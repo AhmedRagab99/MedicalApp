@@ -9,6 +9,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.medicalapp.API.DoctorsModel.DataItem;
@@ -22,7 +23,9 @@ import com.google.android.material.tabs.TabLayout;
  */
 public class doctor_details extends Fragment {
 
-    TextView name;
+    dr_viewpager dr_viewpager;
+    TextView name,cat_name,rate ;
+    ImageView imageView;
     private ViewPager mViewPager;
     viewPager drugViewPager;
     DataItem  dataItem;
@@ -31,24 +34,26 @@ public class doctor_details extends Fragment {
     }
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_doctor_details, container, false);
         name=view.findViewById(R.id.dr_name2);
+        cat_name=view.findViewById(R.id.dr_cat_name2);
+        rate=view.findViewById(R.id.dr_rate2);
+
         mViewPager = (ViewPager) view.findViewById(R.id.page_container);
         TabLayout tabLayout = (TabLayout) view.findViewById(R.id.dr_tablayout);
-        name.setText(dataItem.getProfile().getSlug());
-        setupViewPager(mViewPager);
+
+        name.setText("Dr."+dataItem.getProfile().getFirstName());
+        rate.setText(dataItem.getRatings().get(0).toString());
+        cat_name.setText(dataItem.getSpecialties().get(0).getCategory() + " , " + dataItem.getSpecialties().get(0).getName());
+        dr_viewpager=new dr_viewpager(getChildFragmentManager(),dataItem);
+        mViewPager.setAdapter(dr_viewpager);
         tabLayout.setupWithViewPager(mViewPager);
         return  view;
-    }
-    private void setupViewPager(ViewPager viewPager) {
-        drugViewPager = new viewPager(getChildFragmentManager());
-        drugViewPager.addFragment(new dr_small_details(dataItem), " Doctor's info");
-        //drugViewPager.addFragment(new DrugFragment(String.valueOf(i)), " "+String.valueOf(i)+" ");
-        viewPager.setAdapter(drugViewPager);
     }
 
 }

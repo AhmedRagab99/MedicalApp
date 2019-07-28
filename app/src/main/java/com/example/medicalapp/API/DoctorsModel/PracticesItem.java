@@ -8,6 +8,16 @@ public class PracticesItem{
 	@SerializedName("uid")
 	private String uid;
 
+	public PracticesItem(List<LanguagesItem> languages, VisitAddress visitAddress, List<PhonesItem> phones, double lon, double lat) {
+		this.languages = languages;
+		this.visitAddress = visitAddress;
+		this.phones = phones;
+		this.lon = lon;
+		this.lat = lat;
+	}
+
+
+
 	@SerializedName("office_hours")
 	private List<Object> officeHours;
 
@@ -30,13 +40,13 @@ public class PracticesItem{
 	private List<PhonesItem> phones;
 
 	@SerializedName("lon")
-	private double lon;
+	private double lon=0;
 
 	@SerializedName("location_slug")
 	private String locationSlug;
 
 	@SerializedName("lat")
-	private double lat;
+	private double lat=0;
 
 	public void setUid(String uid){
 		this.uid = uid;

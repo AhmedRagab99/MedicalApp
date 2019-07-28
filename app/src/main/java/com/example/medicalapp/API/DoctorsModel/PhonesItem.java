@@ -7,6 +7,10 @@ public class PhonesItem{
 	@SerializedName("number")
 	private String number;
 
+	public PhonesItem(String number) {
+		this.number = number;
+	}
+
 	@SerializedName("type")
 	private String type;
 

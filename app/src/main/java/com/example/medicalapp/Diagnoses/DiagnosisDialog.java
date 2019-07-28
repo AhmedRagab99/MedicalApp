@@ -34,8 +34,8 @@ public class DiagnosisDialog extends DialogFragment {
         //getDialog().setCanceledOnTouchOutside(false);
         diagnosesViewModel = ViewModelProviders.of(f).get(DiagnosesViewModel.class);
 
-        diagnosesViewModel.loadDiadnoses();
-        System.out.println("a7a ///"+diagnosesViewModel.Diagnoses.getValue());
+        //diagnosesViewModel.loadDiadnoses();
+        //System.out.println("a7a ///"+diagnosesViewModel.Diagnoses.getValue());
 
         //initRecyclerView(view);
         //subscribeToLiveData();
@@ -48,7 +48,6 @@ public class DiagnosisDialog extends DialogFragment {
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setHasFixedSize(true);
-        adapter = new DiagnosesAdapter();
 
 
     }
@@ -57,7 +56,7 @@ public class DiagnosisDialog extends DialogFragment {
         diagnosesViewModel.Diagnoses.observe(this, new Observer<List<DiagnosesResponse>>() {
             @Override
             public void onChanged(List<DiagnosesResponse> diagnosesResponses) {
-                adapter.changeData(diagnosesResponses);
+                adapter = new DiagnosesAdapter(diagnosesResponses);
                 recyclerView.setAdapter(adapter);
             }
         });

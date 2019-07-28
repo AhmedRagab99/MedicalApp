@@ -8,6 +8,10 @@ public class LanguagesItem{
 	@SerializedName("code")
 	private String code;
 
+	public LanguagesItem(String name) {
+		this.name = name;
+	}
+
 	@SerializedName("name")
 	private String name;
 

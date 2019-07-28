@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="15dp"
+    android:layout_margin="7dp"
     android:background="@color/cardview_light_background"
     android:elevation="5dp"
     app:cardCornerRadius="15dp">
@@ -15,7 +15,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/dr_image"
+            android:id="@+id/dr_prof_image"
             android:layout_width="68dp"
             android:layout_height="54dp"
             android:layout_marginStart="5dp"
@@ -25,79 +25,115 @@
             app:srcCompat="@drawable/ic_profile" />
 
         <TextView
-            android:id="@+id/drname_view"
+            android:id="@+id/dr_prof_slug"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="5dp"
             android:layout_marginEnd="10dp"
+            android:fontFamily="@font/montserrat"
             android:text="Name"
-            android:textColor="@color/colorPrimary2"
+            android:textColor="@color/colorPrimaryDark2"
             android:textSize="18sp"
-            android:textStyle="bold"
+            android:textStyle="normal|bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/dr_image"
+            app:layout_constraintStart_toEndOf="@+id/dr_prof_image"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/dr_cat_name"
+            android:id="@+id/dr_special_cat_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
             android:layout_marginEnd="8dp"
+            android:fontFamily="@font/montserrat"
             android:text="cat name"
-            android:textColor="@color/colorAccent"
+            android:textColor="#696666"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/dr_image"
-            app:layout_constraintTop_toBottomOf="@+id/drname_view" />
+            app:layout_constraintStart_toEndOf="@+id/dr_prof_image"
+            app:layout_constraintTop_toBottomOf="@+id/dr_prof_slug" />
 
         <TextView
-            android:id="@+id/dr_actor"
+            android:id="@+id/dr_special_actor"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginStart="15dp"
             android:layout_marginEnd="8dp"
+            android:fontFamily="@font/montserrat"
             android:text="cat name"
-            android:textColor="@color/colorAccent"
+            android:textColor="#696666"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/dr_image"
-            app:layout_constraintTop_toBottomOf="@+id/dr_cat_name" />
+            app:layout_constraintStart_toEndOf="@+id/dr_prof_image"
+            app:layout_constraintTop_toBottomOf="@+id/dr_special_cat_name" />
 
         <TextView
-            android:id="@+id/dr_state_long"
+            android:id="@+id/dr_practic_visited_state_long"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="2dp"
             android:layout_marginEnd="10dp"
+            android:fontFamily="@font/montserrat"
             android:text="state_long"
-            android:textColor="#073F92"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.277"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dr_actor" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/dr_prof_image"
+            app:layout_constraintTop_toBottomOf="@+id/dr_special_actor" />
 
         <Button
             android:id="@+id/dr_details_btn"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="35dp"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="100dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="5dp"
             android:background="@drawable/homebuttons"
+            android:fontFamily="@font/montserrat"
+            android:paddingStart="40dp"
+            android:paddingEnd="40dp"
             android:text="VIEW PROFILE"
+            android:textAlignment="center"
             android:textColor="@color/colorWhite"
+            android:textSize="14sp"
+            android:textStyle="normal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dr_state_long" />
+            app:layout_constraintTop_toBottomOf="@+id/dr_practic_visited_state_long"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/dr_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/montserrat"
+            android:text="120"
+            android:textColor="@color/browser_actions_title_color"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dr_special_actor" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="3dp"
+            app:layout_constraintEnd_toStartOf="@+id/dr_rate"
+            app:layout_constraintTop_toBottomOf="@+id/dr_special_actor"
+            app:srcCompat="@drawable/like" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

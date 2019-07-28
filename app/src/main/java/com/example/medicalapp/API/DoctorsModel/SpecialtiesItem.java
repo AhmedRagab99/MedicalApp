@@ -7,6 +7,14 @@ public class SpecialtiesItem{
 	@SerializedName("actor")
 	private String actor;
 
+	public SpecialtiesItem(String actor, String description, String category,String name) {
+		this.actor = actor;
+		this.description = description;
+		this.category = category;
+		this.name = name;
+
+	}
+
 	@SerializedName("uid")
 	private String uid;
 

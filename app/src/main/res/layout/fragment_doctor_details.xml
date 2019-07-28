@@ -13,11 +13,10 @@
         <View
             android:id="@+id/view3"
             android:layout_width="0dp"
-            android:layout_height="230dp"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/view_dr_shape"
+            android:layout_height="210dp"
+            android:background="@drawable/view_shape"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,12 +25,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="76dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
+            android:fontFamily="@font/montserrat"
             android:text="Name"
             android:textAlignment="center"
             android:textColor="@color/colorWhite"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/view3"
             app:layout_constraintHorizontal_bias="1.0"
@@ -43,35 +43,33 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="5dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="3dp"
+            android:fontFamily="@font/montserrat"
             android:text="Name"
             android:textAlignment="center"
             android:textColor="@color/colorWhite"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/view3"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/imageView8"
             app:layout_constraintEnd_toEndOf="@+id/view3"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/view3"
             app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
         <com.google.android.material.tabs.TabLayout
-            android:elevation="7dp"
             android:id="@+id/dr_tablayout"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@color/cardview_light_background"
-            android:paddingStart="7dp"
-            android:paddingEnd="7dp"
+            android:layout_height="30dp"
+            android:background="@color/colorWhite"
+            android:elevation="7dp"
+
+            android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view3"
-            app:tabGravity="fill"
             app:tabIndicatorColor="@color/ButtonColor"
-            app:tabMode="scrollable"
+            app:tabMode="fixed"
             app:tabRippleColor="@color/colorPrimaryDark2"
             app:tabSelectedTextColor="@color/colorPrimary"
             app:tabTextColor="@color/colorPrimaryDark2" />
@@ -100,5 +98,29 @@
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="@+id/view3"
             app:layout_constraintTop_toBottomOf="@+id/dr_name2" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/like"
+            app:layout_constraintBottom_toTopOf="@+id/dr_tablayout"
+            app:layout_constraintEnd_toStartOf="@+id/dr_rate2" />
+
+        <TextView
+            android:id="@+id/dr_rate2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/montserrat"
+            android:text="10000"
+            android:textColor="@color/colorAccent"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/dr_tablayout"
+            app:layout_constraintEnd_toEndOf="@+id/view3" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

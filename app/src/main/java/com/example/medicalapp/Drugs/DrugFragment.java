@@ -7,23 +7,29 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 
 import com.example.medicalapp.API.DrugModel.DrugResponse;
 import com.example.medicalapp.R;
 import com.google.android.material.tabs.TabLayout;
+
+import java.util.List;
 
 public class DrugFragment extends Fragment {
 
     TabLayout tabLayout;
     RecyclerView recyclerView;
     DrugsAdapter Adapter;
+    SearchView searchview;
     Context context;
     DrugsViewModel drugsViewModel;
+    public DrugFragment(){}
 
     String pageNumber;
 
@@ -39,13 +45,12 @@ public class DrugFragment extends Fragment {
         //Toolbar toolbar = (Toolbar)view.findViewById(R.id.toolbar);
         //context.setSupportActionBar(toolbar);
         //initialize view Model
+        searchview=view.findViewById(R.id.drug_searchView);
 
         tabLayout = view.findViewById(R.id.dr_tablayout);
         drugsViewModel = ViewModelProviders.of(this).get(DrugsViewModel.class);
         drugsViewModel.loadDrugs(pageNumber);
         initRecyclerView(view);
-        //drugsViewModel.loadDrugInfo("CHEMBL1237026");
-
         subscribeToLiveData();
         return view;
     }
@@ -71,15 +76,30 @@ public class DrugFragment extends Fragment {
             }
         });
     }
+    @Override
+    public void onStart() {
+        super.onStart();
 
+        searchview.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
 
-//    private void setTabLayoutWithNewsSources() {
-//        for (int i = 1; i <= 20; i++) {
-//            final TabLayout.Tab tab = tabLayout.newTab();
-//            tab.setText(" Page " + i + " ");
-//            tab.setTag(drugsViewModel.loadDrugs(String.valueOf(i)));
-//            tabLayout.addTab(tab);
-//
-//        }
+                return false;
+            }
+        });
+        searchview.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                Adapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+    }
 
 }
