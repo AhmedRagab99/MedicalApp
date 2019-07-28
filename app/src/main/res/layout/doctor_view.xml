@@ -14,21 +14,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
+        <com.jackandphantom.circularimageview.CircleImage
             android:id="@+id/dr_prof_image"
-            android:layout_width="68dp"
-            android:layout_height="54dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="15dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/applogo"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_profile" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/dr_prof_slug"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="10dp"
             android:fontFamily="@font/montserrat"
@@ -37,7 +37,6 @@
             android:textSize="18sp"
             android:textStyle="normal|bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/dr_prof_image"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,14 +44,13 @@
             android:id="@+id/dr_special_cat_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
+            android:layout_marginStart="10dp"
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/montserrat"
             android:text="cat name"
             android:textColor="#696666"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/dr_prof_image"
             app:layout_constraintTop_toBottomOf="@+id/dr_prof_slug" />
 
@@ -60,14 +58,13 @@
             android:id="@+id/dr_special_actor"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
+            android:layout_marginStart="10dp"
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/montserrat"
             android:text="cat name"
             android:textColor="#696666"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/dr_prof_image"
             app:layout_constraintTop_toBottomOf="@+id/dr_special_cat_name" />
 
@@ -75,8 +72,7 @@
             android:id="@+id/dr_practic_visited_state_long"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:fontFamily="@font/montserrat"
             android:text="state_long"

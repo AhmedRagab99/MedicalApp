@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.medicalapp.API.DoctorsModel.DataItem;
 import com.example.medicalapp.R;
 import com.example.medicalapp.viewPager;
@@ -43,6 +44,7 @@ public class doctor_details extends Fragment {
         name=view.findViewById(R.id.dr_name2);
         cat_name=view.findViewById(R.id.dr_cat_name2);
         rate=view.findViewById(R.id.dr_rate2);
+        imageView=view.findViewById(R.id.imagedrdetails);
 
         mViewPager = (ViewPager) view.findViewById(R.id.page_container);
         TabLayout tabLayout = (TabLayout) view.findViewById(R.id.dr_tablayout);
@@ -50,6 +52,9 @@ public class doctor_details extends Fragment {
         name.setText("Dr."+dataItem.getProfile().getFirstName());
         rate.setText(dataItem.getRatings().get(0).toString());
         cat_name.setText(dataItem.getSpecialties().get(0).getCategory() + " , " + dataItem.getSpecialties().get(0).getName());
+        Glide.with(view)
+                .load(dataItem.getProfile().getImageUrl())
+                .into(imageView);
         dr_viewpager=new dr_viewpager(getChildFragmentManager(),dataItem);
         mViewPager.setAdapter(dr_viewpager);
         tabLayout.setupWithViewPager(mViewPager);

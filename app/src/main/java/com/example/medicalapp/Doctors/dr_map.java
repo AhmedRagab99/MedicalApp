@@ -73,9 +73,10 @@ GoogleMap mMap;
         mMap = googleMap;
 
         LatLng sydney = new LatLng(dataItem.getPractices().get(0).getLat(), dataItem.getPractices().get(0).getLon());
-        mMap.addMarker(new MarkerOptions().position(sydney).title(dataItem.getPractices().get(0).getVisitAddress().getStateLong()));
+        mMap.addMarker(new MarkerOptions().position(sydney).title(dataItem.getPractices().get(0).getVisitAddress().getCity()));
         CameraPosition cameraPosition = new CameraPosition.Builder().target(sydney).zoom(20).build();
         googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
     }
 
 

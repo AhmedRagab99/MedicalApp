@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.bumptech.glide.Glide;
 import com.example.medicalapp.API.DoctorsModel.DataItem;
 import com.example.medicalapp.API.DoctorsModel.LanguagesItem;
 import com.example.medicalapp.API.DoctorsModel.PhonesItem;
@@ -83,6 +84,9 @@ public class DoctorsAdapter extends RecyclerView.Adapter<DoctorsAdapter.ViewHold
         holder.country.setText(doctor.getPractices().get(0).getVisitAddress().getCity());
         holder.actor.setText(doctor.getSpecialties().get(0).getActor());
         holder.rate.setText(doctor.getRatings().get(0).toString());
+        Glide.with(holder.itemView)
+                .load(doctor.getProfile().getImageUrl())
+                .into(holder.icon);
 
         holder.details.setOnClickListener(new View.OnClickListener() {
             @Override

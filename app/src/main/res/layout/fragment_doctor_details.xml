@@ -55,7 +55,7 @@
             app:layout_constraintEnd_toEndOf="@+id/view3"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/view3"
-            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+            app:layout_constraintTop_toBottomOf="@+id/imagedrdetails" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/dr_tablayout"
@@ -86,8 +86,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dr_tablayout" />
 
-        <ImageView
-            android:id="@+id/imageView5"
+        <com.jackandphantom.circularimageview.CircleImage
+            android:id="@+id/imagedrdetails"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginStart="10dp"
@@ -117,7 +117,7 @@
             android:layout_marginBottom="20dp"
             android:fontFamily="@font/montserrat"
             android:text="10000"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/browser_actions_title_color"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/dr_tablayout"
