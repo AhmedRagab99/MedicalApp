@@ -72,7 +72,7 @@ public class DiagnosesFragment extends Fragment {
 //            recyclerView.setVisibility(View.GONE);
 //        }
 //
-//            //notfound.setVisibility(View.GONE);
+        notfound.setVisibility(View.GONE);
 
         return  view;
     }
