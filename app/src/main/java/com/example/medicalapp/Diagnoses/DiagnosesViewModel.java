@@ -14,6 +14,7 @@ import com.example.medicalapp.Symptom.SymptomAdapter;
 
 import org.json.JSONArray;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -47,9 +48,13 @@ public class DiagnosesViewModel extends AndroidViewModel {
                     System.out.println("leeeh kda");
                     return;
                 }
+                System.out.println("a7a ///");
 
+                if(response.body()==null||response.body().size()==0)
+                    Diagnoses.setValue(new ArrayList<DiagnosesResponse>());
+                else
                     Diagnoses.setValue(response.body());
-                    System.out.println("a7a ///"+Diagnoses.getValue());
+
             }
 
             @Override

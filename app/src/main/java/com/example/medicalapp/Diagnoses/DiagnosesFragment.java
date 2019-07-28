@@ -26,7 +26,7 @@ import java.util.List;
 public class DiagnosesFragment extends Fragment {
 
     List<String> checkedSymptoms = new ArrayList<>();
-
+    int size;
     public DiagnosesFragment(List<String> checkedSymptoms) {
         this.checkedSymptoms = checkedSymptoms;
     }
@@ -42,37 +42,19 @@ public class DiagnosesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        size=0;
         View view=inflater.inflate(R.layout.fragment_diagnoses, container, false);
         diago=view.findViewById(R.id.diagoimge);
         notfound=view.findViewById(R.id.notfound);
+        diago.setVisibility(View.GONE);
+        notfound.setVisibility(View.GONE);
         diagnosesViewModel= ViewModelProviders.of(this).get(DiagnosesViewModel.class);
         initRecyclerView(view);
+        recyclerView.setVisibility(View.GONE);
         diagnosesViewModel.loadDiadnoses(this.checkedSymptoms);
         subscribeToLiveData();
-//        if(this.checkedSymptoms.isEmpty()||adapter.diagnoses.isEmpty() ){
-//            diago.setVisibility(View.GONE);
-//            recyclerView.setVisibility(View.GONE);
-//        }
-//           else if(adapter.diagnoses==null){
-//            diago.setVisibility(View.GONE);
-//            recyclerView.setVisibility(View.GONE);
-//        }
-//        else  notfound.setVisibility(View.VISIBLE);
-//        if(this.checkedSymptoms.size()!=0){
-//        System.out.println(adapter.getItemCount()+"///"+adapter.diagnoses.size());
-//            if(adapter.getItemCount()!=0)
-//            notfound.setVisibility(View.GONE);
-//            else {
-//                diago.setVisibility(View.GONE);
-//                recyclerView.setVisibility(View.GONE);
-//            }
-//        }
-//        else {
-//            diago.setVisibility(View.GONE);
-//            recyclerView.setVisibility(View.GONE);
-//        }
-//
-        notfound.setVisibility(View.GONE);
+
+
 
         return  view;
     }
@@ -87,8 +69,29 @@ public class DiagnosesFragment extends Fragment {
 
                 adapter = new DiagnosesAdapter(diagnosesResponses);
 
-                System.out.println(adapter.diagnoses.size()+".........................");
+                size=diagnosesResponses.size();
                 recyclerView.setAdapter(adapter);
+                System.out.println(adapter.diagnoses.size()+"........................."+size);
+
+                if(checkedSymptoms.size()!=0){
+                    if(adapter.diagnoses.size()!=0) {
+                        notfound.setVisibility(View.GONE);
+                        diago.setVisibility(View.VISIBLE);
+                        recyclerView.setVisibility(View.VISIBLE);
+                    }
+                    else {
+                        diago.setVisibility(View.GONE);
+                        recyclerView.setVisibility(View.GONE);
+                        notfound.setVisibility(View.VISIBLE);
+
+                    }
+                }
+                else {
+                    diago.setVisibility(View.GONE);
+                    recyclerView.setVisibility(View.GONE);
+                    notfound.setVisibility(View.VISIBLE);
+
+                }
             }
         });
 

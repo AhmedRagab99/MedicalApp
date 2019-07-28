@@ -23,7 +23,7 @@ public class DiagnosesAdapter  extends RecyclerView.Adapter<DiagnosesAdapter.Vie
         this.diagnoses = new ArrayList<>();
         this.diagnoses.addAll(diagnoses);
     }
-
+    public  int size=0;
     List<DiagnosesResponse> diagnoses;
     @NonNull
     @Override
@@ -60,9 +60,12 @@ public class DiagnosesAdapter  extends RecyclerView.Adapter<DiagnosesAdapter.Vie
 
     @Override
     public int getItemCount() {
-        if(diagnoses==null||diagnoses.isEmpty())
-        return 0;
-        else return diagnoses.size();
+//        if(diagnoses.size()==0||diagnoses==null)
+//        return 0;
+//        else
+        size=diagnoses.size();
+//        System.out.println(size+"*/*/");
+        return diagnoses.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
