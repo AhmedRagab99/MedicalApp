@@ -23,8 +23,7 @@ public interface WebServices {
 // Rabid Api methods
     @Headers({
 
-    "X-RapidAPI-Host: priaid-symptom-checker-v1.p.rapidapi.com",
-     "X-RapidAPI-Key: 19254fe262msh78a558e2cc28b5ap1c14d7jsndc5a74cf5506"
+   
     })
     @GET("symptoms")
     Call<List<SymptomResponse>> getSymptoms(@Query("language")String language);
@@ -32,8 +31,7 @@ public interface WebServices {
 
 
     @Headers({
-            "X-RapidAPI-Host:priaid-symptom-checker-v1.p.rapidapi.com",
-            "X-RapidAPI-Key:19254fe262msh78a558e2cc28b5ap1c14d7jsndc5a74cf5506"
+           
     })
     @GET("diagnosis")
     Call<List<DiagnosesResponse>> getDiagnoses(@Query("symptoms") JSONArray symptomArray,@Query("gender")String gender,@Query("year_of_birth")int  year,@Query("language") String language);
@@ -54,11 +52,7 @@ Call<DoctorResponse>getDoctors(@Query("user_key")String apiKey,@Query("name")Str
 
     //InferamidecaApi
 
-    @Headers({"App-Id:281fe9c7",
-            "App-Key:648fad60ec47148a7b6a4cebdc871402",
-            "Content-Type: application/json",
-            "Dev-Mode: true",
-            "Accept: application/json",
+    @Headers({
 
  })
     //NewsApi
